@@ -1,29 +1,26 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+    <div >
+      <HelloWorld/>
     </div>
   </header>
 
-  <main>
-    <TheWelcome />
-  </main>
+
 </template>
 
 <style>
 @import './assets/base.css';
 
 #app {
-  max-width: 1280px;
+  max-width: 5000px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1vw;
 
   font-weight: normal;
 }
@@ -31,6 +28,45 @@ import TheWelcome from './components/TheWelcome.vue'
 header {
   line-height: 1.5;
 }
+
+h3 {
+    font-size: 16px;
+    font-size: 2.5vh;
+}
+.container-lp {
+  width: 100%;
+  max-width: 1280px;
+  min-width: 320px;
+  margin: 0 auto;
+  clear: both;
+}
+
+.col-2-lp {
+  float: left;
+  width: 45%;
+  margin-right: 5%;
+}
+
+.last-lp {
+  margin-right: 0;
+}
+
+.col-2-lp img {
+  width: 100%;
+}
+ /* Three image containers (use 25% for four, and 50% for two, etc) */
+.column {
+  float: left;
+  width: 50%;
+  padding: 1vw;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+} 
 
 .logo {
   display: block;
@@ -44,13 +80,24 @@ a,
   transition: 0.4s;
 }
 
+@media only screen and (min-device-width: 320px) and (max-device-width: 600px) {
+  .col-2-lp {
+    width: 100%;
+    float: none;
+    margin: auto;
+  }
+  .last-lp {
+    margin-right: auto;
+  }
+}
+
 @media (hover: hover) {
   a:hover {
     background-color: hsla(160, 100%, 37%, 0.2);
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 5000px) {
   body {
     display: flex;
     place-items: center;

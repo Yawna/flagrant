@@ -1,43 +1,46 @@
-<script setup>
-defineProps({
-  msg: {
-    type: String,
-    required: true
+<script>
+
+function changeFlag() {
+    this.text = "foobar";
+}
+
+export default {
+  data() {
+    return {
+      text: ''
+    }
+  },
+  name: 'HelloWorld',
+  methods: {
+      changeFlag
+      
   }
-})
+}
+
 </script>
+<style>
+@import '../assets/base.css';
+
+
+
+</style>
 
 <template>
-  <div class="greeings">
-    <h1 class="green">{{ msg }}</h1>
-    <h3>
-      You’ve successfully created a project with
-      <a target="_blank" href="https://vitejs.dev/">Vite</a> +
-      <a target="_blank" href="https://vuejs.org/">Vue 3</a>.
-    </h3>
-  </div>
+<p></p>
+ <h3>
+    Select your preferred flag.
+ </h3>
+ <p></p>
+
+
+<div class="container-lp">
+    <div class="col-2-lp">
+        <img src="@/assets/Flag_of_Delaware.svg" id="Flag1" :onclick="changeFlag">
+    </div>
+    <div class="col-2-lp last-lp">
+        <img src="@/assets/Flag_of_Pennsylvania.svg" id="Flag2" :onclick="changeFlag">
+    </div>
+</div>
+
+
 </template>
-
-<style scoped>
-h1 {
-  font-weight: 500;
-  font-size: 2.6rem;
-  top: -10px;
-}
-
-h3 {
-  font-size: 1.2rem;
-}
-
-.greetings h1,
-.greetings h3 {
-  text-align: center;
-}
-
-@media (min-width: 1024px) {
-  .greetings h1,
-  .greetings h3 {
-    text-align: left;
-  }
-}
-</style>
