@@ -1,17 +1,13 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
 
-function changeFlag() {
-    document.getElementById("Flag1").src = PennIcon;
-}
 </script>
 
 <template>
   <header>
 
     <div >
-      <HelloWorld msg="You did it!" />
+      <HelloWorld/>
     </div>
   </header>
 
