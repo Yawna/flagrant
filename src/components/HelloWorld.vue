@@ -1,13 +1,14 @@
 <script>
 
 function changeFlag() {
-    this.text = "foobar";
+    this.Flag1 = 'Georgia';
 }
 
 export default {
   data() {
     return {
-      text: ''
+      Flag1: 'Delaware',
+      Flag2:'Pennsylvania'
     }
   },
   name: 'HelloWorld',
@@ -35,10 +36,10 @@ export default {
 
 <div class="container-lp">
     <div class="col-2-lp">
-        <img src="@/assets/Flag_of_Delaware.svg" id="Flag1" :onclick="changeFlag">
+        <img :src="`/assets/flags/Flag_of_${Flag1}.svg`" id="Flag1" :onclick="changeFlag">
     </div>
     <div class="col-2-lp last-lp">
-        <img src="@/assets/Flag_of_Pennsylvania.svg" id="Flag2" :onclick="changeFlag">
+        <img :src="`/assets/flags/Flag_of_${Flag2}.svg`" id="Flag2" :onclick="changeFlag">
     </div>
 </div>
 
