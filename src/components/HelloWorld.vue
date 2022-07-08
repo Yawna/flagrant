@@ -10,22 +10,16 @@ const STATES = new Array("Alabama","Alaska","Arizona","Arkansas","California","C
 
 
 function changeFlag() {
-
-    let num1 = 0;
-    let num2 = 0;
     
-    while (num1 == num2){
-        num1 = getRndInt(0,STATES.length);
-        num2 = getRndInt(0,STATES.length);
-      }  
+    const [name1, name2] = getFlagPair();
 
     if (this.showFirst) {
-      this.Flag1 = STATES[num1];
-      this.Flag2 = STATES[num2];
+      this.Flag1 = name1;
+      this.Flag2 = name2;
     }  
     else {
-      this.Flag3 = STATES[num1];
-      this.Flag4 = STATES[num2];
+      this.Flag3 = name1;
+      this.Flag4 = name2;
     }
 
     this.showFirst = !this.showFirst;
@@ -74,23 +68,6 @@ export default {
 </style>
 
 <template>
-<!-- <p></p>
- <h3>
-    Select your preferred flag.
- </h3>
- <p></p>
-
-
-<div class="container-lp">
-    <div class="col-2-lp">
-        <img :src="`/assets/flags/Flag_of_${Flag1}.svg`" id="Flag1" :onclick="changeFlag">
-        <img :src="`assets/flags/Flag_of_${Flag3}.svg`" id="Flag3" :onclick="changeFlag" hidden>
-    </div>
-    <div class="col-2-lp last-lp">
-        <img :src="`/assets/flags/Flag_of_${Flag2}.svg`" id="Flag2" :onclick="changeFlag">
-        <img :src="`assets/flags/Flag_of_${Flag4}.svg`" id="Flag4" :onclick="changeFlag" hidden>
-    </div>
-</div> -->
 
 <div class="mainText">Select your preferred flag.</div>
 

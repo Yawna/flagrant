@@ -29,50 +29,10 @@ header {
   line-height: 1.5;
 }
 
-/* h3 {
-    font-size: 16px;
-    font-size: 2.5vh;
-}
-.container-lp {
-  width: 100%;
-  max-width: 1280px;
-  min-width: 320px;
-  margin: 0 auto;
-  clear: both;
-}
-
-.col-2-lp {
-  float: left;
-  width: 45%;
-  margin-right: 5%;
-}
-
-.last-lp {
-  margin-right: 0;
-}
-
-.col-2-lp img {
-  width: 100%;
-}
- /* Three image containers (use 25% for four, and 50% for two, etc) */
-/* .column {
-  float: left;
-  width: 50%;
-  padding: 1vw;
-}
-
-/* Clear floats after image containers */
-/* .row::after {
-  content: "";
-  clear: both;
-  display: table;
-}  */ 
-
 .logo {
   display: block;
   margin: 0 auto 2rem;
 }
-
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 600px) {
   .col-2-lp {
@@ -143,7 +103,6 @@ img{
   width: 80%;
  }
 }
-
 
 img:hover {
   cursor: pointer;
