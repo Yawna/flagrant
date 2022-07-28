@@ -1,3 +1,13 @@
+<style>
+@import '../assets/base.css';
+img:hover {
+  cursor: pointer;
+  filter: drop-shadow(0px 0px 10px rgb(0, 0, 0));
+}
+
+</style>
+
+
 <script>
 
 const STATES = new Array("Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida",
