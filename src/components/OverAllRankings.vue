@@ -1,10 +1,94 @@
 <style>
 
-img{
+.img{
   height: 90%;
   width: auto;
   filter: drop-shadow(0px 0px 10px rgb(90, 89, 89));
+
 }
+
+div.mainText {
+  padding-left: 10px;
+  padding-top: 20px;
+  padding-bottom: 5px;
+}
+
+
+@media screen and (min-width: 601px) {
+  div.mainText{
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  div.mainText {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 601px) {
+  div.mainText2{
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  div.mainText2 {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 601px) {
+  .container2 {
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 350px;
+    width: 100%;
+    margin-bottom: 5vh;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container2{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
+    padding: 0 ;
+    margin-bottom: 15px;
+    width:100%;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 601px) {
+.item2 {
+  height: 350px;
+  display: flex;
+ }
+}
+@media screen and (min-width: 601px) {
+.item2b {
+  margin-right: 7%;
+  display: flex;
+ }
+}
+
+@media screen and (max-width: 600px) {
+.item2 {
+  height: 150px;
+  display: flex;
+ }
+}
+@media screen and (max-width: 600px) {
+.item2b {
+  margin-right: 7%;
+  display: flex;
+  padding: 12px;
+ }
+}
+
 </style>
 
 <script>

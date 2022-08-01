@@ -1,8 +1,69 @@
 <style>
 @import '../assets/base.css';
-img:hover {
+
+div.img{
+  width: 100%;
+  filter: drop-shadow(0px 0px 10px rgb(90, 89, 89));
+}
+
+div.img:hover {
   cursor: pointer;
   filter: drop-shadow(0px 0px 10px rgb(0, 0, 0));
+}
+
+div.mainText {
+  padding-left: 10px;
+  padding-top: 20px;
+  padding-bottom: 5px;
+}
+
+
+@media screen and (min-width: 601px) {
+  div.mainText{
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  div.mainText {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 601px) {
+  div.container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    height: 80vh;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  div.container{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
+    padding: 0 ;
+    margin: 0;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 601px) {
+div.item {
+  width: 40%;
+ }
+}
+
+@media screen and (max-width: 600px) {
+div.item {
+  height:40%;
+  width: 80%;
+ }
 }
 
 </style>
@@ -84,7 +145,7 @@ export default {
       showFirst: true,
     }
   },
-  name: 'HelloWorld',
+  name: 'RateFlags',
   methods: {
       changeFlag
   },
