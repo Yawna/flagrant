@@ -1,6 +1,4 @@
 <script setup>
-//import RateFlags from './components/RateFlags.vue'
-//import OverAllRankings from './components/OverAllRankings.vue'
 </script>
 
 <template>

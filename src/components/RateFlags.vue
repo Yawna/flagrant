@@ -1,4 +1,4 @@
-<style>
+<style scoped>
 @import '../assets/base.css';
 
 div.img{
@@ -64,6 +64,12 @@ div.item {
   height:40%;
   width: 80%;
  }
+}
+
+
+img{
+  width: 100%;
+  filter: drop-shadow(0px 0px 10px rgb(90, 89, 89));
 }
 
 </style>
@@ -152,12 +158,6 @@ export default {
 }
 
 </script>
-<style>
-@import '../assets/base.css';
-
-
-
-</style>
 
 <template>
 

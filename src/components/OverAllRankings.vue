@@ -1,4 +1,4 @@
-<style>
+<style scoped>
 
 .img{
   height: 90%;
