@@ -1,12 +1,12 @@
 <style scoped>
 @import '../assets/base.css';
 
-div.img{
+img{
   width: 100%;
   filter: drop-shadow(0px 0px 10px rgb(90, 89, 89));
 }
 
-div.img:hover {
+img:hover {
   cursor: pointer;
   filter: drop-shadow(0px 0px 10px rgb(0, 0, 0));
 }

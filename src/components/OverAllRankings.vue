@@ -1,6 +1,6 @@
 <style scoped>
 
-.img{
+img{
   height: 90%;
   width: auto;
   filter: drop-shadow(0px 0px 10px rgb(90, 89, 89));
