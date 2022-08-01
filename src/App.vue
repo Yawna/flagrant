@@ -3,16 +3,13 @@
 
 <template>
   <header>
-
+    <ul>
+      <li><router-link to="/current-rankings">Current Rankings</router-link></li>
+      <li><router-link to="/">Rank Flags</router-link></li>
+    </ul> 
     <div >
       <router-view></router-view>
-     
     </div>
-
-    <ul>
-      <li><router-link to="/">Go to OverAllRankings</router-link></li>
-      <li><router-link to="/">Go to RateFlags</router-link></li>
-    </ul> 
   </header>
 
 
@@ -48,7 +45,6 @@ li a {
 #app {
   max-width: 5000px;
   margin: 0 auto;
-  padding: 1vw;
 
   font-weight: normal;
 }
