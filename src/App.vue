@@ -1,6 +1,7 @@
 <script setup>
 //import HelloWorld from './components/HelloWorld.vue'
 import OverAllRankings from './components/OverAllRankings.vue'
+import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
