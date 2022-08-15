@@ -4,8 +4,9 @@
 <template>
   <header>
     <ul>
-      <li><router-link to="/current-rankings">Current Rankings</router-link></li>
-      <li><router-link to="/">Rank Flags</router-link></li>
+      <li><router-link to="/">Vote</router-link></li>
+      <li><router-link to="/current-rankings">Rankings</router-link></li>
+      <li><router-link to="about">Why?</router-link></li>
     </ul> 
     <div >
       <router-view></router-view>
@@ -23,8 +24,7 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
-}
+  background-color: white}
 
 li {
   float: left;
@@ -32,14 +32,15 @@ li {
 
 li a {
   display: block;
-  color: white;
+  color: black;
   text-align: center;
   padding: 14px 16px;
+  font-size: 15pt;
   text-decoration: none;
 }
 
- .active {
-  background-color: #04AA6D;
+ li a:hover {
+  background-color: rgb(218, 238, 245);
 }
 
 #app {
@@ -49,11 +50,6 @@ li a {
   font-weight: normal;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
 
 @media (min-width: 5000px) {
   body {
