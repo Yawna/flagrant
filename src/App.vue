@@ -1,13 +1,15 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-
 </script>
 
 <template>
   <header>
-
+    <ul>
+      <li><router-link to="/">Vote</router-link></li>
+      <li><router-link to="/current-rankings">Rankings</router-link></li>
+      <li><router-link to="about">Why?</router-link></li>
+    </ul> 
     <div >
-      <HelloWorld/>
+      <router-view></router-view>
     </div>
   </header>
 
@@ -17,102 +19,37 @@ import HelloWorld from './components/HelloWorld.vue'
 <style>
 @import './assets/base.css';
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: white}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  font-size: 15pt;
+  text-decoration: none;
+}
+
+ li a:hover {
+  background-color: rgb(218, 238, 245);
+}
+
 #app {
   max-width: 5000px;
   margin: 0 auto;
-  padding: 1vw;
 
   font-weight: normal;
 }
 
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media only screen and (min-device-width: 320px) and (max-device-width: 600px) {
-  .col-2-lp {
-    width: 100%;
-    float: none;
-    margin: auto;
-  }
-  .last-lp {
-    margin-right: auto;
-  }
-}
-
-div.mainText {
-  padding-left: 10px;
-  padding-top: 20px;
-  padding-bottom: 5px;
-}
-
-@media screen and (min-width: 601px) {
-  div.mainText{
-    font-size: 30px;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  div.mainText {
-    font-size: 15px;
-  }
-}
-
-@media screen and (min-width: 601px) {
-  .container {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    align-items: center;
-    padding: 0;
-    margin: 0;
-    height: 80vh;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .container{
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: space-around;
-    padding: 0 ;
-    margin: 0;
-    align-items: center;
-  }
-}
-
-img{
-  width: 100%;
-  filter: drop-shadow(0px 0px 10px rgb(90, 89, 89));
-}
-
-@media screen and (min-width: 601px) {
-.item {
-  width: 40%;
- }
-}
-
-@media screen and (max-width: 600px) {
-.item {
-  height:40%;
-  width: 80%;
- }
-}
-
-img:hover {
-  cursor: pointer;
-  filter: drop-shadow(0px 0px 10px rgb(0, 0, 0));
-}
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
 
 @media (min-width: 5000px) {
   body {
@@ -124,22 +61,6 @@ img:hover {
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 0 2rem;
-  }
-
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
   }
 }
 </style>
