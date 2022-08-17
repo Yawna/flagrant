@@ -118,7 +118,6 @@ img{
 
 
 <script>
-import { stringify } from 'postcss';
 
 
 const STATES = new Array("Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida",
@@ -173,24 +172,25 @@ function changeFlag(winner) {
     this.showFirst = !this.showFirst;
     if (this.count%10==0 && this.set.size!=50){
       this.message = "You have completed "+(this.count)+ " matches and ranked "+(this.set.size)+" unique flags! ";
-      popup(this.set,this.count)
+      this.showPopUp=true;
     }
     else if ((this.set).size== 50) {
       this.message = "You've ranked all of the flags! Thank you for your participation! "
-      popup(this.set,this.count)
+      this.showPopUp=true;
     }
 }
 
-function popup(set,count){
-  console.log("---Start---");
-  console.log(count);
-  console.log(set);
-  console.log("----End----");
-  document.getElementById("overlay").style.display = "block";
+function popupOff(){
+  this.showPopUp = false;
 }
 
-function popupOff(){
-  document.getElementById("overlay").style.display = "none";
+function dynamicStyling(){
+  if(this.showPopUp){
+    return {display:"block"};
+  }
+  else{
+    return {display:"none"};
+  }
 }
 
 function getRndInt(min,max){
@@ -220,10 +220,14 @@ export default {
       showFirst: true,
       count: 0,
       set: new Set(),
-      message:""
+      message:"",
+      showPopUp: false
     }
   },
   name: 'RateFlags',
+  computed: {
+    dynamicStyling
+  },
   methods: {
       changeFlag,
       popupOff
@@ -247,7 +251,7 @@ export default {
     <img :src="`assets/flags/Flag_of_${Flag4}.svg`" id="Flag4" :onclick="() => changeFlag(Flag4)" :hidden="showFirst">
   </div>
 </div>
-<div id="overlay" :onclick="() => popupOff()">
+<div id="overlay" :onclick="() => popupOff()" :style="dynamicStyling">
   <div id="overlay_text" > {{this.message}} Click anywhere to continue ranking or <router-link id="overlay_text2" to="/current-rankings">view</router-link> the overall flag rankings.</div>
 </div> 
 
