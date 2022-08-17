@@ -4,3 +4,4 @@ aws s3 cp ./dist/index.html s3://yawna-flagrant-web/index.html --cache-control "
 aws s3 cp ./dist/assets/*.css s3://yawna-flagrant-web/assets/ --cache-control "public, max-age=31536000" --content-type "text/css"
 aws s3 cp ./dist/assets/*.js s3://yawna-flagrant-web/assets/ --cache-control "public, max-age=31536000" --content-type "text/javascript"
 aws s3 cp ./dist/assets/flags s3://yawna-flagrant-web/assets/flags --cache-control "public, max-age=31536000" --content-type "image/svg+xml" --recursive
+aws s3 cp ./dist/assets/Flag-map.svg s3://yawna-flagrant-web/assets/Flag-map.svg --cache-control "public, max-age=31536000" --content-type "image/svg+xml"
