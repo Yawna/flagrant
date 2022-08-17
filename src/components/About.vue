@@ -90,7 +90,7 @@ img{
     <p>To contact or submit your own state flag design for ranking, please email flagoff@gmail.com</p>
   </div>
   <div class="item">
-    <img src="assets/Flag-map.svg">
+    <img src="/assets/Flag-map.svg">
   </div>
 </div>
 </template>
