@@ -1,3 +1,4 @@
+
 <style scoped>
 @import '../assets/base.css';
 
@@ -119,7 +120,6 @@ img{
 
 <script>
 
-
 const STATES = new Array("Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida",
                       "Georgia", "Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine", "Maryland",
                       "Massachusetts", "Michigan","Minnesota", "Mississippi","Missouri","Montana","Nebraska","Nevada","New_Hampshire",
@@ -152,24 +152,36 @@ function changeFlag(winner) {
     this.count = this.count + 1;
     
     let former1, former2;
-    if (this.showFirst) {
-      former1 = this.Flag1;
-      former2 = this.Flag2;
-      this.Flag1 = name1;
-      this.Flag2 = name2;
-    }  
-    else {
-      former1 = this.Flag3;
-      former2 = this.Flag4;
-      this.Flag3 = name1;
-      this.Flag4 = name2;
+    former1 = this.Flag1;
+    former2 = this.Flag2;
+    if (this.Flag1 == winner){
+      this.Flag2 = this.Flag4;
     }
+    else{
+      this.Flag1 = this.Flag3;
+    }
+    this.markOff(former1,former2);
+    this.Flag3 = this.getNewRndFlag(this.Flag2);
+    this.Flag4 = this.getNewRndFlag(this.Flag1);
+    console.log(this.Flag3);
+    console.log(this.Flag4);
+    if (this.Flag3 == null || this.Flag4 == null){
+      let num = getRndInt(0,50);
+      while(this.the_map.get(STATES[num]).size === 0){
+        num = getRndInt(0,50);
+        console.log(STATES[num]);
+        console.log(this.the_map.get(STATES[num]));
+      }
+      let arrayFromSet =  Array.from(this.the_map.get(STATES[num]))
+      let num2 = getRndInt(0,arrayFromSet.length);
+      this.Flag3 = STATES[num];
+      this.Flag4 = arrayFromSet[num2];
+    }
+    
     this.set.add(former1);
     this.set.add(former2);
-    console.log(this.set);
-    console.log(this.count);
     recordMatch(former1,former2,winner);
-    this.showFirst = !this.showFirst;
+
     if (this.count%10==0 && this.set.size!=50){
       this.message = "You have completed "+(this.count)+ " matches and ranked "+(this.set.size)+" unique flags! ";
       this.showPopUp=true;
@@ -197,6 +209,24 @@ function getRndInt(min,max){
   return Math.floor(Math.random()*(max-min))+min;
 }
 
+function getNewRndFlag(state_name){
+  let state = this.the_map.get(state_name);
+  if (state.size == 0){
+    return null;
+  }
+  let num1 = getRndInt(0,state.size);
+  while (!state.has(STATES[num1])){
+    console.log("I'm stuck");
+    num1 = getRndInt(0,state.size);
+  }  
+  return STATES[num1];
+}
+
+function markOff(state1,state2){
+  ((this.the_map).get(state1)).delete(state2);
+  ((this.the_map).get(state2)).delete(state1);
+}
+
 function getFlagPair(){
   let num1 = 0;
   let num2 = 0;
@@ -207,18 +237,56 @@ function getFlagPair(){
   return [STATES[num1],STATES[num2]];
 }
 
+function getFlagSet(){
+  let num1 = 0;
+  let num2 = 0;
+  let num3 = 0;
+  let num4 = 0;
+  while (num1 == num2 || num1 == num3 || num1 == num4 || num2 == num3 || num2 == num4 ||num3 == num4 ){
+    num1 = getRndInt(0,STATES.length);
+    num2 = getRndInt(0,STATES.length);
+    num3 = getRndInt(0,STATES.length);
+    num4 = getRndInt(0,STATES.length);
+
+  }
+  return [STATES[num1],STATES[num2],STATES[num2],STATES[num3], STATES[num4]];
+}
+
+function makeList(){
+  const my_map = new Map();
+  let state_set = new Set(["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida",
+                      "Georgia", "Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine", "Maryland",
+                      "Massachusetts", "Michigan","Minnesota", "Mississippi","Missouri","Montana","Nebraska","Nevada","New_Hampshire",
+                      "New_Jersey","New_Mexico","New_York","North_Carolina","North_Dakota","Ohio","Oklahoma","Oregon","Pennsylvania",
+                      "Rhode_Island","South_Carolina","South_Dakota", "Tennessee","Texas","Utah","Vermont","Virginia","Washington",
+                      "West_Virginia","Wisconsin","Wyoming"])
+  for (let item in STATES){
+    state_set.delete(STATES[item]);
+    my_map.set(STATES[item], new Set(JSON.parse(JSON.stringify(Array.from(state_set)))));
+    state_set.add(STATES[item]);
+  }
+  return my_map;
+}
+
 
 export default {
   data() {
     const [Flag1, Flag2] = getFlagPair();
     const [Flag3, Flag4] = getFlagPair();
+    //const [Flag1,Flag2,FlagA,FlagB,FlagC] = getFlagSet();
+    const the_map = makeList();
     return {
+      the_map,
       Flag1,
       Flag2,
       Flag3,
       Flag4,
       showFirst: true,
+      showA: false,
+      showB: true,
+      showC: true,
       count: 0,
+      letter: "A",
       set: new Set(),
       message:"",
       showPopUp: false
@@ -230,7 +298,10 @@ export default {
   },
   methods: {
       changeFlag,
-      popupOff
+      popupOff,
+      makeList,
+      markOff,
+      getNewRndFlag
   },
 }
 
@@ -243,12 +314,12 @@ export default {
 
 <div class="container">
   <div class="item">
-    <img :src="`/assets/flags/Flag_of_${Flag1}.svg`" id="Flag1" :onclick="() => changeFlag(Flag1)" :hidden="!showFirst">
-    <img :src="`assets/flags/Flag_of_${Flag3}.svg`" id="Flag3" :onclick="() => changeFlag(Flag3)" :hidden="showFirst">   
+    <img :src="`/assets/flags/Flag_of_${Flag1}.svg`" :onclick="() => changeFlag(Flag1)">
+    <img :src="`assets/flags/Flag_of_${Flag3}.svg`" hidden>   
   </div>
   <div class="item">
-    <img :src="`/assets/flags/Flag_of_${Flag2}.svg`" id="Flag2" :onclick="() => changeFlag(Flag2)" :hidden="!showFirst">
-    <img :src="`assets/flags/Flag_of_${Flag4}.svg`" id="Flag4" :onclick="() => changeFlag(Flag4)" :hidden="showFirst">
+    <img :src="`/assets/flags/Flag_of_${Flag2}.svg`" :onclick="() => changeFlag(Flag2)" >
+    <img :src="`assets/flags/Flag_of_${Flag4}.svg`" hidden>
   </div>
 </div>
 <div id="overlay" :onclick="() => popupOff()" :style="dynamicStyling">
