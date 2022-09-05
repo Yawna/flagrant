@@ -15,18 +15,21 @@ div.mainText {
   padding-left: 10px;
   padding-top: 20px;
   padding-bottom: 20px;
+  color:black;
 }
 
 
 @media screen and (min-width: 601px) {
   div.mainText{
     font-size: 30px;
+    color:black;
   }
 }
 
 @media screen and (max-width: 600px) {
   div.mainText {
     font-size: 17px;
+    color:black;
   }
 }
 
