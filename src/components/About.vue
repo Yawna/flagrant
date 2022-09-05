@@ -3,33 +3,37 @@
 
 
 @media screen and (min-width: 601px) {
-  div.mainText{
+  div.mainText5 {
     font-size: 30px;
     padding-left: 150px;
     padding-top: 20px;
     padding-bottom: 5px;
+    color:black;
   }
 }
 
 @media screen and (max-width: 600px) {
-  div.mainText {
+  div.mainText5 {
     font-size: 20px;
     padding-left: 25px;
     padding-top: 20px;
     padding-bottom: 5px;
+    color:black;
   }
 }
 
 @media screen and (min-width: 601px) {
-    p {
+    p5 {
         padding-left: 150px;
         font-size: 20px;
+        color:black;
     }
 }
 @media screen and (max-width: 600px) {
-    p {
+    p5 {
         padding-left: 25px;
         font-size: 15px;
+        color:black;
     }
 }
 
@@ -81,13 +85,13 @@ img{
 <template>
 <div class="container">
   <div class="item">
-    <div class="mainText">About Us</div>
+    <div class="mainText5">About Us</div>
     <br>
-    <p>Flagoff was created with the goal of improving current state flags. Today, very few Americans can successfully identify which state 
+    <p5>Flagoff was created with the goal of improving current state flags. Today, very few Americans can successfully identify which state 
       each flag represents. Some state flags have aged poorly and others display images too complex to be seen from a distance. I hope that with this ranking
-      system to generate greater interest in U.S. state flags and create their own design. </p>
+      system to generate greater interest in U.S. state flags and create their own design. </p5>
     <br>
-    <p>To contact or submit your own state flag design for ranking, please email flagoff@gmail.com</p>
+    <p5>To contact or submit your own state flag design for ranking, please email flagoff@gmail.com</p5>
   </div>
   <div class="item">
     <img src="/assets/Flag-map.svg">
