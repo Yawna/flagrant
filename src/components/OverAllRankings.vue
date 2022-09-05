@@ -11,6 +11,7 @@ div.mainText {
   padding-left: 10px;
   padding-top: 20px;
   padding-bottom: 5px;
+  color:black;
 }
 
 
@@ -29,12 +30,14 @@ div.mainText {
 @media screen and (min-width: 601px) {
   div.mainText2{
     font-size: 25px;
+    color:black;
   }
 }
 
 @media screen and (max-width: 600px) {
   div.mainText2 {
     font-size: 15px;
+    color:black;
   }
 }
 
