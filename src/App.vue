@@ -46,7 +46,6 @@ li a {
 #app {
   max-width: 5000px;
   margin: 0 auto;
-  background-color: white;
   font-weight: normal;
 }
 

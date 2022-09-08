@@ -23,14 +23,14 @@
 }
 
 @media screen and (min-width: 601px) {
-    p5 {
+    p {
         padding-left: 150px;
         font-size: 20px;
         color:black;
     }
 }
 @media screen and (max-width: 600px) {
-    p5 {
+    p {
         padding-left: 25px;
         font-size: 15px;
         color:black;
@@ -69,14 +69,22 @@ div.item {
 @media screen and (max-width: 600px) {
 div.item {
   height:40%;
-  width: 80%;
+  width: 100%;
   margin-bottom: 10%;
  }
 }
+@media screen and (min-width: 601px) {
+  img{
+    width: 90%;
+    filter: drop-shadow(0px 0px 10px rgb(90, 89, 89));
+  }
+}
 
-img{
-  width: 90%;
-  filter: drop-shadow(0px 0px 10px rgb(90, 89, 89));
+@media screen and (max-width: 600px) {
+  img{
+    width:90%;
+    filter: drop-shadow(0px 0px 10px rgb(90, 89, 89));
+  }
 }
 
 
@@ -87,14 +95,14 @@ img{
   <div class="item">
     <div class="mainText5">About Us</div>
     <br>
-    <p5>Flagoff was created with the goal of improving current state flags. Today, very few Americans can successfully identify which state 
+    <p>Flagoff was created with the goal of improving current state flags. Today, very few Americans can successfully identify which state 
       each flag represents. Some state flags have aged poorly and others display images too complex to be seen from a distance. I hope that with this ranking
-      system to generate greater interest in U.S. state flags and create their own design. </p5>
+      system to generate greater interest in U.S. state flags and create their own design. </p>
     <br>
-    <p5>To contact or submit your own state flag design for ranking, please email flagoff@gmail.com</p5>
+    <p>To contact or submit your own state flag design for ranking, please email justflagmedown@gmail.com</p>
   </div>
   <div class="item">
-    <img src="/assets/Flag-map.svg">
+    <img src="/assets/Flag-map.svg" alt=" ">
   </div>
 </div>
 </template>
